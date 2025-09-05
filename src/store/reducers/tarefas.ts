@@ -10,10 +10,24 @@ const initialState: TarefasState = {
   itens: [
     {
       id: 1,
-      descricao: 'Revisar conexão com banco de dados',
+      descricao: 'Revisar conteúdo',
       prioridade: enums.Prioridade.URGENTE,
       status: enums.Status.PENDENTE,
       titulo: 'Estudar Java'
+    },
+    {
+      id: 2,
+      descricao: 'Revisar conteúdo',
+      prioridade: enums.Prioridade.URGENTE,
+      status: enums.Status.PENDENTE,
+      titulo: 'Estudar SQL'
+    },
+    {
+      id: 3,
+      descricao: 'Revisar conteúdo',
+      prioridade: enums.Prioridade.URGENTE,
+      status: enums.Status.PENDENTE,
+      titulo: 'Estudar Python'
     }
   ]
 }
