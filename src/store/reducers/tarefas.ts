@@ -2,37 +2,41 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Tarefa from '../../models/Tarefa'
 import * as enums from '../../utils/enums/Tarefa'
 
+type TarefasState = {
+  itens: Tarefa[]
+}
+
+const initialState: TarefasState = {
+  itens: [
+    {
+      id: 1,
+      descricao: 'Revisar conexão com banco de dados',
+      prioridade: enums.Prioridade.URGENTE,
+      status: enums.Status.PENDENTE,
+      titulo: 'Estudar Java'
+    }
+  ]
+}
+
 const tarefasSlice = createSlice({
   name: 'tarefas',
-  initialState: [
-    new Tarefa(
-      'Estudar javascript',
-      enums.Prioridade.IMPORTANTE,
-      enums.Status.PENDENTE,
-      '',
-      1
-    ),
-    new Tarefa(
-      'Estudar node.js',
-      enums.Prioridade.URGENTE,
-      enums.Status.CONCLUIDA,
-      '',
-      2
-    ),
-    new Tarefa(
-      'Estudar react',
-      enums.Prioridade.NORMAL,
-      enums.Status.PENDENTE,
-      '',
-      3
-    )
-  ],
+  initialState,
   reducers: {
     remover: (state, action: PayloadAction<number>) => {
-      state = state.filter((tarefa) => tarefa.id !== action.payload)
+      state.itens = [
+        ...state.itens.filter((tarefa) => tarefa.id !== action.payload)
+      ]
+    },
+    editar: (state, action: PayloadAction<Tarefa>) => {
+      const indexTarefa = state.itens.findIndex(
+        (t) => t.id === action.payload.id
+      )
+      if (indexTarefa >= 0) {
+        state.itens[indexTarefa] = action.payload
+      }
     }
   }
 })
 
-export const { remover } = tarefasSlice.actions
+export const { remover, editar } = tarefasSlice.actions
 export default tarefasSlice.reducer
