@@ -11,7 +11,7 @@ const initialState: TarefasState = {
     {
       id: 1,
       descricao: 'Revisar conteúdo',
-      prioridade: enums.Prioridade.URGENTE,
+      prioridade: enums.Prioridade.IMPORTANTE,
       status: enums.Status.PENDENTE,
       titulo: 'Estudar Java'
     },
