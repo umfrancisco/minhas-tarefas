@@ -18,14 +18,14 @@ const initialState: TarefasState = {
     {
       id: 2,
       descricao: 'Revisar conteúdo',
-      prioridade: enums.Prioridade.URGENTE,
-      status: enums.Status.PENDENTE,
+      prioridade: enums.Prioridade.IMPORTANTE,
+      status: enums.Status.CONCLUIDA,
       titulo: 'Estudar SQL'
     },
     {
       id: 3,
       descricao: 'Revisar conteúdo',
-      prioridade: enums.Prioridade.URGENTE,
+      prioridade: enums.Prioridade.NORMAL,
       status: enums.Status.PENDENTE,
       titulo: 'Estudar Python'
     }
